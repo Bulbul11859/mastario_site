@@ -1,0 +1,464 @@
+:root {
+  --bs-blue: #0d6efd;
+  --bs-indigo: #6610f2;
+  --bs-purple: #6f42c1;
+  --bs-pink: #d63384;
+  --bs-red: #dc3545;
+  --bs-orange: #fd7e14;
+  --bs-yellow: #ffc107;
+  --bs-green: #198754;
+  --bs-teal: #20c997;
+  --bs-cyan: #0dcaf0;
+  --bs-white: #fff;
+  --bs-gray: #6c757d;
+  --bs-gray-dark: #343a40;
+  --bs-primary: #5d5f61;
+  --bs-dark: #121212;
+  --bs-font-sans-serif: Libre Franklin, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+  --bs-font-monospace: Menlo, Monaco, Consolas, Liberation Mono, Courier New,
+    monospace;
+  --btn--primary-gradient: linear-gradient(90deg, #64ecf5 0%, #1cebbc 100%);
+}
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+    2. Remove default margin
+  */
+* {
+  margin: 0;
+}
+/*
+    3. Allow percentage-based heights in the application
+  */
+html,
+body {
+  height: 100%;
+}
+/*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-size: 0.8725rem;
+  color: var(--bs-primary);
+  font-family: var(--bs-font-sans-serif);
+}
+/*
+    6. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+    7. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+    8. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul,
+ol,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  list-style: none;
+  text-decoration: none;
+  color: var(--bs-dark);
+}
+/*
+    9. Create a root stacking context
+  */
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/*---------------- starting styling here ----------------------*/
+
+/*---------------- Structure ----------------------*/
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  text-transform: uppercase;
+  padding: 0.5rem 2rem;
+  font-size: 0.8125rem;
+  border-radius: 5px;
+  font-family: var(--bs-font-sans-serif);
+  font-weight: 500;
+  border: 0;
+}
+.btn-primary {
+  color: var(--bs-white);
+
+  background-image: var(--btn--primary-gradient);
+}
+.btn-primary:hover {
+  background: var(--bs-dark);
+}
+
+.heading {
+  font-size: 2.25rem;
+  font-weight: 500;
+  color: var(--bs-dark);
+  line-height: 3.5rem;
+  z-index: 33;
+}
+.sub-heading {
+  font-size: 1.125rem;
+  line-height: 2rem;
+  font-weight: 300;
+  color: var(--bs-gray);
+}
+
+.heading+.sub-heading{
+  margin-top: 10px;
+}
+
+/*---------------- Headed part ----------------------*/
+.header {
+  position: fixed;
+  width: 100%;
+  padding: 0.5rem 0;
+  background: var(--bs-white);
+  z-index: 3333;
+}
+
+.navbar__logo img {
+  width: 165px;
+  height: 47px;
+}
+
+.header .navbar .nav {
+  gap: 2.5rem;
+}
+.nav__link {
+  position: relative;
+
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--bs-dark) !important;
+  text-transform: uppercase;
+}
+
+.nav__link::after {
+  content: "";
+  position: absolute;
+  background-color: var(--bs-cyan);
+  height: 3px;
+  width: 0%;
+  left: 0;
+  bottom: -10px;
+  transition: 0.3s;
+}
+.nav__link:hover:after,
+.nav__link:hover {
+  width: 100%;
+  color: var(--bs-cyan) !important;
+}
+
+@media screen and (max-width: 1000px) {
+  .nav__link::after {
+    content: none;
+  }
+}
+
+/*----------------banner part ----------------------*/
+.banner{
+  margin-top: 100px;
+}
+
+.banner__text {
+  width: 100%;
+  background: url(./img/bg-lg-1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 1.5rem;
+  padding-bottom: 25rem;
+  font-family: var(--bs-font-sans-serif);
+  color: var(--bs-white);
+  padding-top: 10em;
+}
+
+.banner__text .banner__heading {
+  font-size: 4.5rem;
+  font-weight: 700;
+}
+.banner__text .banner__subheading {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.banner__text .banner__subtext {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.banner__text .btn--banner {
+  margin-top: 3em;
+  padding: 1rem 2.5rem;
+}
+
+.banner__slider {
+  position: relative;
+  height: 450px;
+  z-index: 2;
+}
+.banner__slider .banbner__slider__box {
+  width: 1100px;
+  border: 1rem solid var(--bs-dark);
+  position: absolute;
+  top: -60%;
+  left: 50%;
+  transform: translatex(-50%);
+}
+
+.banner__slider .banbner__slider__box img {
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 1050px) {
+  .banner__text {
+    width: 100%;
+
+    padding-bottom: 15rem;
+  }
+
+  .banner__slider .banbner__slider__box {
+    width: 80%;
+
+    border: 1rem solid var(--bs-dark);
+
+    position: absolute;
+    top: -40%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .banner__text {
+    width: 100%;
+
+    padding-bottom: 10rem;
+  }
+
+  .banner__slider .banbner__slider__box {
+    width: 80%;
+
+    border: 1rem solid var(--bs-dark);
+
+    position: absolute;
+    top: 0%;
+  }
+}
+
+/*----------------Demo part ----------------------*/
+
+
+.demo {
+  margin-top: 100px;
+}
+.demo__item {
+  margin-top:4rem;
+}
+.demo__item__child{
+  margin-bottom: 3rem;
+}
+
+.demo__text{
+  margin-top: 1.5rem;
+  text-align: center;
+  font-weight: 300;
+  color: var(--bs-dark);
+}
+.demo__text:hover{
+  color: var(--bs-cyan);
+  cursor: pointer;
+}
+.demo__img {
+  position: top;
+  background-position: top;
+  height: 200px;
+  transition: ease-in-out 3s;
+}
+.demo__img:hover {
+ background-position: bottom;
+ 
+}
+.demo__img1{
+  background: url('./img/home.jpg');
+  background-size: cover;
+}
+.demo__img2{
+  background: url('./img/prod-home-02.jpg');
+  background-size: cover;
+}
+.demo__img3{
+  background: url('./img/prod-home-03.jpg');
+  background-size: cover;
+}
+.demo__img4{
+  background: url('./img/prod-home-04.jpg');
+  background-size: cover;
+}
+.demo__img5{
+  background: url('./img/prod-home-05.jpg');
+  background-size: cover;
+}
+.demo__img6{
+  background: url('./img/prod-home-06.jpg');
+  background-size: cover;
+}
+.demo__img7{
+  background: url('./img/prod-home-07.jpg');
+  background-size: cover;
+}
+.demo__img8{
+  background: url('./img/prod-home-08.jpg');
+  background-size: cover;
+}
+.demo__img13{
+  background: url('./img/home\ 13.png');
+  background-size: cover;
+}
+.demo__img14{
+  background: url('./img/home_14.png');
+  background-size: cover;
+}
+.demo__img15{
+  background: url('./img/home_15.png');
+  background-size: cover;
+}
+.demo__img16{
+  background: url('./img/home_16.png');
+  background-size: cover;
+}
+.demo__img17{
+  background: url('./img/home_17.png');
+  background-size: cover;
+}
+
+/*----------------Product part ----------------------*/
+
+.product{
+  margin-top: 80px;
+  background-image: linear-gradient(90deg, #E3FDFF 0%, #E3FDF7 100%);
+  padding-top: 170px;
+ height: 250vh;
+ 
+
+}
+.product__shop{
+  margin-top: 150px;
+}
+.product__slider{
+  max-width: 98%;
+  margin-top: 50px;
+
+}
+.slider__item img{
+  width: 90%;
+  margin-left: auto;
+}
+.slider__item h4{
+  color: var(--bs-dark);
+}
+.slick-dots {
+  position: absolute;
+  bottom: -50px;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+}
+.slick-dots li button:before {
+  font-family: slick;
+  font-size: 16px;
+  line-height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  content: '•';
+  text-align: center;
+  opacity: .25;
+  color: #000000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*----------------work part ----------------------*/
+.work{
+  margin-top: 170px;
+}
+.work__apps{
+  margin-top: 100px;
+}
+.work__responsive{
+  margin-top: 100px;
+}
+.work__menu{
+  margin-top: 100px;
+}
+.work__pop-up{
+  margin-top: 100px;
+}
+
+/* Structure css work */
+.work .work__text{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 100px;
+}
+.work__text img{
+  width: 140px;
+}
+
+
+
